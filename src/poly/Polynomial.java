@@ -157,7 +157,8 @@ public class Polynomial {
 	 * @return A new polynomial which is the sum of this polynomial and p.
 	 */
 	public Polynomial add(Polynomial p) {
-		/** COMPLETE THIS METHOD **/
+		System.out.println("inside add");
+
 		return null;
 	}
 	
