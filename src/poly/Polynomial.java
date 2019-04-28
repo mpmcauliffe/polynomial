@@ -107,6 +107,15 @@ public class Polynomial {
 	public Polynomial() {
 		poly = null;
 	}
+
+//	private void addToFront(Term term) {
+//		Term node = new EmployeeNode(employee);
+//
+//		node.setNext(head);
+//		head = node;
+//
+//		size++;
+//	}
 	
 	/**
 	 * Reads a polynomial from an input stream (file or keyboard). The storage format
@@ -157,7 +166,17 @@ public class Polynomial {
 	 * @return A new polynomial which is the sum of this polynomial and p.
 	 */
 	public Polynomial add(Polynomial p) {
-		System.out.println("inside add");
+
+		Node poly1 = this.poly;
+		Node poly2 = p.poly;
+
+		while (this.poly != null) {
+			System.out.println(this.poly.term);
+
+			this.poly = this.poly.next;
+		}
+
+		System.out.println(poly1.term.equals(poly2.term));
 
 		return null;
 	}

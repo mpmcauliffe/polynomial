@@ -61,10 +61,10 @@ public class Polytest {
 				System.out.println("\tIncorrect choice " + choice);
 			} else {
 				switch (choice) {
-				case ADD: add(); break;
-				case MULTIPLY: multiply(); break;
-				case EVALUATE: evaluate(); break;
-				default: break;
+					case ADD: add(); break;
+					case MULTIPLY: multiply(); break;
+					case EVALUATE: evaluate(); break;
+					default: break;
 				}
 			}
 			choice = getChoice();
