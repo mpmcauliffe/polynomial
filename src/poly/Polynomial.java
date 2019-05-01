@@ -109,7 +109,7 @@ public class Polynomial {
 	}
 
 //	private void addToFront(Term term) {
-//		Term node = new EmployeeNode(employee);
+//		Term node = new Term(employee);
 //
 //		node.setNext(head);
 //		head = node;
@@ -167,16 +167,31 @@ public class Polynomial {
 	 */
 	public Polynomial add(Polynomial p) {
 
-		Node poly1 = this.poly;
-		Node poly2 = p.poly;
+		Node poly1 		 = this.poly;			// input 1
+		Node poly2 		 = p.poly;				// input 2
+		Polynomial sum   = new Polynomial(); 	// for sum
 
-		while (this.poly != null) {
-			System.out.println(this.poly.term);
+		//poly2.term.coeff += poly1.term.coeff;
 
-			this.poly = this.poly.next;
+		System.out.println(poly2.next.term.coeff);
+
+		while (poly1.next != null || poly2.next != null) {
+
+
+			poly1 = poly1.next;
+			poly2 = poly2.next;
 		}
 
-		System.out.println(poly1.term.equals(poly2.term));
+		while (poly1 != null) {
+			System.out.print(poly1.term + "  ");
+			poly1 = poly1.next;
+		}
+		System.out.print("\n");
+		while (poly2 != null) {
+			System.out.print(poly2.term + "  ");
+			poly2 = poly2.next;
+		}
+		System.out.print("\n");
 
 		return null;
 	}
