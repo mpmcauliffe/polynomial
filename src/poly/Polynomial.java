@@ -99,7 +99,7 @@ public class Polynomial {
 	 * Pointer to the front of the linked list that stores the polynomial. 
 	 */ 
 	Node poly;
-	
+
 	/** 
 	 * Initializes this polynomial to empty, i.e. there are no terms.
 	 *
@@ -107,15 +107,6 @@ public class Polynomial {
 	public Polynomial() {
 		poly = null;
 	}
-
-//	private void addToFront(Term term) {
-//		Term node = new Term(employee);
-//
-//		node.setNext(head);
-//		head = node;
-//
-//		size++;
-//	}
 	
 	/**
 	 * Reads a polynomial from an input stream (file or keyboard). The storage format
@@ -170,7 +161,7 @@ public class Polynomial {
 		Node poly1 		 = this.poly;			// input 1
 		Node poly2 		 = p.poly;				// input 2
 		Polynomial sum   = new Polynomial(); 	// for sum
-		Node set;       //= new Node(poly1.term.coeff + poly2.term.coeff, poly1.term.degree, null); 								// build node to put into sum
+		Node set 		 = null;       //= new Node(poly1.term.coeff + poly2.term.coeff, poly1.term.degree, null); 								// build node to put into sum
 
 //		sum.poly = set;
 //		System.out.println(sum.poly.term);
@@ -181,13 +172,14 @@ public class Polynomial {
 
 		while (poly1 != null || poly2 != null) {
 
+
 			if (poly1 != null && poly2 != null) {
 				/** If each term has equal degrees **/
 				if (poly1.term.degree == poly2.term.degree) {
 					/** Build node **/
 					set = new Node(poly2.term.coeff + poly1.term.coeff,
 							poly1.term.degree,
-							null);
+							set);
 
 
 					sum.poly = set;            // put node into sum
@@ -197,7 +189,7 @@ public class Polynomial {
 
 				} else if (poly1.term.degree > poly2.term.degree) {
 					/** Only adding term from poly2 **/
-					set = new Node(poly2.term.coeff, poly2.term.degree, null);
+					set = new Node(poly2.term.coeff, poly2.term.degree, set);
 
 					sum.poly = set;            // put node into sum
 					poly2 = poly2.next;            // increment poly2 and only poly2
@@ -205,7 +197,7 @@ public class Polynomial {
 
 				} else {
 					/** Only adding term from poly1 **/
-					set = new Node(poly1.term.coeff, poly1.term.degree, null);
+					set = new Node(poly1.term.coeff, poly1.term.degree, set);
 
 					sum.poly = set;            // put node into sum
 					poly1 = poly1.next;            // increment poly1 and only poly1
@@ -214,13 +206,13 @@ public class Polynomial {
 			}
 
 			if (poly1 != null && poly2 == null) {
-				set = new Node(poly1.term.coeff, poly1.term.degree, null);
+				set = new Node(poly1.term.coeff, poly1.term.degree, set);
 
 				sum.poly = set;            // put node into sum
 				poly1 = poly1.next;            // increment poly1 and only poly1
 				System.out.println(sum.poly.term);
 			} else if (poly1 == null && poly2 != null) {
-				set = new Node(poly2.term.coeff, poly2.term.degree, null);
+				set = new Node(poly2.term.coeff, poly2.term.degree, set);
 
 				sum.poly = set;            // put node into sum
 				poly2 = poly2.next;            // increment poly2 and only poly2
@@ -229,20 +221,12 @@ public class Polynomial {
 			sum.poly = sum.poly.next;
 		}
 
-//		while (sum.poly.next != null) {
-//			System.out.print(sum.poly.term + "  ");
+		System.out.println(sum.poly == null);
+
+//		while (sum.poly != null) {
+//			System.out.print("poly" + sum.poly.term + "  ");
 //			sum.poly = sum.poly.next;
 //		}
-//		while (poly1 != null) {
-//			System.out.print(poly1.term + "  ");
-//			poly1 = poly1.next;
-//		}
-//		System.out.print("\n");
-//		while (poly2 != null) {
-//			System.out.print(poly2.term + "  ");
-//			poly2 = poly2.next;
-//		}
-//		System.out.print("\n");
 
 		return sum;
 	}
