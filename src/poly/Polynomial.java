@@ -181,11 +181,9 @@ public class Polynomial {
 							poly1.term.degree,
 							set);
 
-
 					sum.poly = set;            // put node into sum
 					poly1 = poly1.next;            // increment poly1
 					poly2 = poly2.next;            // increment poly2
-					System.out.println(sum.poly.term);
 
 				} else if (poly1.term.degree > poly2.term.degree) {
 					/** Only adding term from poly2 **/
@@ -193,7 +191,6 @@ public class Polynomial {
 
 					sum.poly = set;            // put node into sum
 					poly2 = poly2.next;            // increment poly2 and only poly2
-					System.out.println(sum.poly.term);
 
 				} else {
 					/** Only adding term from poly1 **/
@@ -201,7 +198,6 @@ public class Polynomial {
 
 					sum.poly = set;            // put node into sum
 					poly1 = poly1.next;            // increment poly1 and only poly1
-					System.out.println(sum.poly.term);
 				}
 			}
 
@@ -210,18 +206,16 @@ public class Polynomial {
 
 				sum.poly = set;            // put node into sum
 				poly1 = poly1.next;            // increment poly1 and only poly1
-				System.out.println(sum.poly.term);
+
 			} else if (poly1 == null && poly2 != null) {
 				set = new Node(poly2.term.coeff, poly2.term.degree, set);
 
 				sum.poly = set;            // put node into sum
 				poly2 = poly2.next;            // increment poly2 and only poly2
-				System.out.println(sum.poly.term);
 			}
 			sum.poly = sum.poly.next;
 		}
 
-		System.out.println(sum.poly == null);
 
 //		while (sum.poly != null) {
 //			System.out.print("poly" + sum.poly.term + "  ");
